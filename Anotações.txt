@@ -1,0 +1,88 @@
+
+
+Porque não rodar uma VM
+  - Por conta do tempo e quantidade de recursos q leva para subir uma máquina VM
+  - A diferença de ambientes e recursos q uma máquina VM possa ter.
+
+
+O que são Containers 
+    - Segregação de arquivos
+    - Sistema de arquivos criados a partir de uma imagem 
+    - Ambientes leves e portateis.
+    - Encapsula os binários e bibliotecas necessárias 
+    - Algo entre chroot e uma VM
+         o Chroot é uma parte q vc redefine uma past raiz para startar um processo em uma nova pasta raiz.
+
+O que são imagens Docker
+    - É um modelo de sisema de arquivos para criar um Container
+    - Imagem é criado atraves de um processo chamado build
+    - São armazenadas em repositórios no registry
+    - São compostas por uma ou mais camadas.
+    - Apenas a ultima cadama pode ser altrada quando o container for iniciado.
+
+      
+
+comando docker container run
+O run sempre cria um novo container qdo executamos ele.
+    docker container run + nome imagem
+     - Baixa uma imagem, cria o container e executa o container.
+        Run
+        Create 
+        start e exec.
+
+comando docker container ps
+        Mostra quais containers estão ativos.
+
+comando docker container ps -a  (ls -a tbm funciona).
+        Mostra todos os containers qu foram execultados independente do status.
+
+comando rm  remove o container.
+
+comando docker container run -it debian bash
+    o -it entra em modo iterativo com o teminal do container.
+
+comando para nomear um container
+    docker container run --name meuContainer -it debian bash
+
+comando docker start -ai myContainer
+    o a é de atach para anexar o terminal e o i é o modo interativo. equivalente ao -it
+
+
+mapear portas do container docker container run -p 8080:80 nginx
+    Com isso é possivel mapear portas da sua máquina para o container usar.
+
+Mapeamento de volumes.
+    Uma pasta no computador host para uma pasta no container.
+    comando : docker container run -p 8080:80 -v C:/Users/ricardo.castro/Documents/Pessoal/docker-udemy/ex-volume/html:/usr/share/nginx/html nginx
+    - Nesse comando eu subi na porta 8080 e 80 do meu container um volume onde compartilhei um arquivo html e configurei como default no carregamento do nginx do meu container.
+    
+comando -d é modo deamon é o modo em que se deve rodar os container 
+    docker container run -d --name ex-daemon-basic -p 8080:80 -v C:/Users/ricardo.castro/Documents/Pessoal/docker-udemy/ex-volume/html:/usr/share/nginx/html nginx
+    - Resumindo tem o modo interativo -it e tem o modo demon q é o -d onde ele fica rodando em background e vc n fica com o terminal preso.
+
+## IMPORTANTE
+comando docker container inspect ex-daemon-basic
+    Esse comando mostra várias caracteristicas do meu container, diretorio de logs, que tipo de imagem ele se baseia etc...
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    

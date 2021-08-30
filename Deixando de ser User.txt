@@ -1,0 +1,57 @@
+Comandos
+    docker image ls - Listar as imagens existentes
+    docker image rm hash o name - remover imagem
+    docker image pull - baixar imagem diretamente do docker hub
+    docker image inspect - Mostra um json com várias informações importantes da sua imagem
+    docker image tag imagem de origem + a tag q vc deseja - Esse cmando replica uma imagem e cria uma ta com a de sua preferência.
+    docker image/container build - Esse comando gera a minha imagem.
+    docker image push - Voce pode publicar a sua imagem corporativamente ou no docker hub.
+
+Docker registry
+    É um serviço server side que disponibiliza uma API para q vc possa enviar ou resgatar imagem.
+    Você pode ter um registry privado na empresa com imagens especificas. etc
+    Fantastic..... 
+
+
+Docker hub 
+    Saas é um produto na nuvem disponibilizado na nuvem.
+    Contem o registry dentro dele mas tem diversar imagens oficiais geradas pelo proprio time do Docker.
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+Tipos de Redes q o Docker disponibiliza
+
+    Tipo None = docker container run -d --net none debian
+        - Nesse caso o container fica isolado, ele n tem acesso entre si e nem ao mundo exterior internet etc.
+        - Vc só consegue acessar ele via terminal e volumes etc.
+        - N acessa containers locais.
+
+    Tipo Padrão Bridge = docker container run
+        - Esse é o modo mais interessante pois tem mais segurança.
+        - com a camada bridge para proteger a rede do seu container.
+
+    Tipo Host = docker container run -d --net host debian
+        - Nesse modo o containerusa diretamente as interfaces de rede da maquina host
+        - Tem um nivel de proteção mais baixo
+        - acessa diretamente as interfaces de redes
+
+    Para pingar redes e verificar se o container está liberado vc faz esse comando:
+    docker container exec -it container1 ping www.google.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
